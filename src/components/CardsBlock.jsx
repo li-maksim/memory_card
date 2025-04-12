@@ -2,7 +2,9 @@ import '../styles/CardsBlock.css'
 import { useState } from 'react'
 import Card from './Card.jsx'
 
-function CardsBlock({pokemons}) {
+function CardsBlock({arr}) {
+
+    const [pokemons, setPokemons] = useState(arr)
 
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -11,11 +13,15 @@ function CardsBlock({pokemons}) {
         }
     }
 
-    shuffleArray(pokemons)
+    function handleCardClick() {
+        const newArr = [...arr]
+        shuffleArray(newArr)
+        setPokemons(newArr)
+    }
 
     const createCards = pokemons.map((item) => {
         return(
-            <Card key={item} pokemon={item}></Card>
+            <Card key={item} fn={handleCardClick} pokemon={item}></Card>
         )
     })
 

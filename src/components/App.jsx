@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <CardsBlock pokemons={pokemonsArr}></CardsBlock>
+      <CardsBlock arr={pokemonsArr}></CardsBlock>
     </>
   )
 }

@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useEffect } from "react"
 import '../styles/Card.css'
 
-function Card({pokemon}) {
+function Card({pokemon, fn}) {
 
     const [data, setData] = useState({name: '', sprite: ''})
 
@@ -22,7 +22,7 @@ function Card({pokemon}) {
     }, [pokemon])
 
     return (
-        <div className="card">
+        <div className="card" onClick={fn}>
             <img src={data.sprite} alt={data.name} className="card_img"/>
             <p className="card_name">{data.name}</p>
         </div>
