@@ -23,8 +23,8 @@ function Card({pokemon}) {
 
     return (
         <div className="card">
-            <img src={data.sprite} alt={data.name} className="sprite"/>
-            <p className="name">{data.name}</p>
+            <img src={data.sprite} alt={data.name} className="card_img"/>
+            <p className="card_name">{data.name}</p>
         </div>
     )
 }
