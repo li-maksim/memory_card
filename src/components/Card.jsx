@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useEffect } from "react"
 import '../styles/Card.css'
 
-function Card({pokemon, fn}) {
+function Card({pokemon, fn, countFn}) {
 
     const [data, setData] = useState({name: '', sprite: ''})
 
@@ -21,8 +21,13 @@ function Card({pokemon, fn}) {
         fetchData()
     }, [pokemon])
 
+    function handleClick(e) {
+        countFn(e)
+        fn()
+    }
+
     return (
-        <div className="card" onClick={fn}>
+        <div className="card" onClick={(e) => handleClick(e)} data-name={data.name}>
             <img src={data.sprite} alt={data.name} className="card_img"/>
             <p className="card_name">{data.name}</p>
         </div>

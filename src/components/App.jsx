@@ -5,11 +5,24 @@ import CardsBlock from './CardsBlock.jsx'
 
 function App() {
 
-  const pokemonsArr = ['bulbasaur', 'charmander', 'squirtle']
+  const [pokemonsArr, setPokemonsArr] = useState(['bulbasaur', 'charmander', 'squirtle'])
+  const [clicked, setClicked] = useState([])
+
+  function countScore(e) {
+    let name = e.target.dataset.name
+    if (!clicked.includes(name)) {
+      setClicked([...clicked, name])
+      console.log(clicked)
+    } else {
+      console.log('busted')
+      setClicked([])
+    }
+  }
 
   return (
     <>
-      <CardsBlock arr={pokemonsArr}></CardsBlock>
+      <h1>{clicked.length}</h1>
+      <CardsBlock arr={pokemonsArr} countFn={countScore}></CardsBlock>
     </>
   )
 }

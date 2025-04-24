@@ -2,7 +2,7 @@ import '../styles/CardsBlock.css'
 import { useState } from 'react'
 import Card from './Card.jsx'
 
-function CardsBlock({arr}) {
+function CardsBlock({arr, countFn}) {
 
     const [pokemons, setPokemons] = useState(arr)
 
@@ -21,7 +21,7 @@ function CardsBlock({arr}) {
 
     const createCards = pokemons.map((item) => {
         return(
-            <Card key={item} fn={handleCardClick} pokemon={item}></Card>
+            <Card key={item} fn={handleCardClick} pokemon={item} countFn={countFn}></Card>
         )
     })
 
