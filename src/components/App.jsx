@@ -6,7 +6,12 @@ import Scoreboard from './Scoreboard.jsx'
 
 function App() {
 
-  const [pokemonsArr, setPokemonsArr] = useState(['bulbasaur', 'charmander', 'squirtle'])
+  const pokemonsArr = []
+  let i = 1
+  while (i <= 12) {
+    pokemonsArr.push(i)
+    i++
+  }
   const [clicked, setClicked] = useState([])
   const [bestScore, setBestScore] = useState(0)
 
